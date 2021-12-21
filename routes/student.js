@@ -89,10 +89,13 @@ router.get('/courses/:id', authRequired, async (req, res) => {
 });
 
 // Returns student enrolled course
-router.get('/submission', authRequired, async (req, res) => {
+router.get('/submission/:id', authRequired, async (req, res) => {
 	const { user } = req.session;
+	const { id } = req.params;
 	// Allowable only for students
 	if(user.role != 'student') return res.redirect('/');
+	
+	// TODO: get lesson assignments and pass to view
 	
 	res.render('student/submission', {});
 });

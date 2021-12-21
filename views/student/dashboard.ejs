@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/student_dashboard.css">
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
     <title>
       Dashboard
     </title>
@@ -37,24 +38,25 @@
             <a class="btn btn-primary mt-3" href="/student/enrollment">Enroll</a>
           </form>
         </div>
+		
         <div class="col-12 col-lg-4 mt-1" id="assignmentsPanel">
-          <div id="assignments">
-            <ul>
-              <li><a href="/student/submission">assignment</a></li>
-              <li><a href="/student/submission">assignment</a></li>
-              <li><a href="/student/submission">assignment</a></li>
-              <li><a href="/student/submission">assignment</a></li>
-              <li><a href="/student/submission">assignment</a></li>
-              <li><a href="/student/submission">assignment</a></li>
-            </ul>
-          </div>
-          <div id="filterByClassPanel">
-            <select name="class">
-              <option value="class1">Class 1</option>
-              <option value="class2">Class 2</option>
-              <option value="class3">Class 3</option>
-            </select>
-          </div>
+		  
+		  <div class="list-group col" id="assignments">
+		  <h2>Assignments</h2>
+		    <% for(let course of enrolled) {%>
+              <a href="#collapse_<%=course._id%>" class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_<%=course._id%>" aria-expanded="false" aria-controls="#collapse_<%=course._id%>"><%=course.name%></a>
+			  <div class="collapse" id="collapse_<%=course._id%>">
+			    <div class="row mb-2 mt-2">
+			      <h2>Lessons (<%= course.lessons.length%>)</h2>
+				  <ul class="list-group list-group-flush">
+				    <% for(let lesson of course.lessons) {%>
+				    <li class="list-group-item"><a href="/student/submission/<%=lesson._id%>"><%=lesson.name%></a></li>
+					<% } %>
+				  </ul>
+			    </div>
+			  </div>
+		    <% } %>
+		  </div>
         </div>
       </div>
     </div>

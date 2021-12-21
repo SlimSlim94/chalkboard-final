@@ -124,7 +124,6 @@ app.post('/api/login', (req, res) => {
 		  res.status(200).json(user);
 		  req.session.user = user;
 		  req.session.save();
-		  console.log("Session: ", req.session);		  
 	  }
     });
   }
@@ -133,6 +132,8 @@ app.post('/api/login', (req, res) => {
 // Admin search
 // Login request
 app.get('/api/admin/search', async (req, res) => {
+  if(req.session.user.role != 'admin') return res.status(403);
+  
   const result = await database.search(req.query);
   res.status(200).json(result);
 });
@@ -140,6 +141,8 @@ app.get('/api/admin/search', async (req, res) => {
 // Instructors
 // Get list of the instructors
 app.get('/api/instructors', (req, res) => {
+  if(req.session.user.role != 'instructor') return res.status(403);
+  
   database.getUsers('instructor', (instructors) => {
     res.status(200).json(instructors);
   });
@@ -158,12 +161,14 @@ app.get('/api/students', (req, res) => {
 /////////////////////////////
 // Courses
 // Search course
-app.get('/api/courses', async (req, res) => {
+app.get('/api/courses', async (req, res) => {  
   const course = await database.searchCourse(req.query);
   res.status(200).json(course);
 });
 // Create course
 app.post('/api/courses', (req, res) => {
+  if(req.session.user.role != 'instructor' && req.session.user.role != 'admin') return res.status(403);
+  
   const { body } = req;
   if (!body.number || !body.name || !Array.isArray(body.instructors)
     || !body.instructors.length || !Array.isArray(body.students)
@@ -179,12 +184,16 @@ app.post('/api/courses', (req, res) => {
 });
 // Update course
 app.put('/api/courses/:id', async (req, res) => {
+  if(req.session.user.role != 'instructor' && req.session.user.role != 'admin') return res.status(403);
+  
   const course = req.body;
   await database.updateCourse(req.params.id, course);
   res.status(200).send();
 });
 // Delete course
 app.delete('/api/courses/:id', async (req, res) => {
+  if(req.session.user.role != 'instructor' && req.session.user.role != 'admin') return res.status(403);
+  
   await database.deleteCourse(req.params.id);
   res.status(200).send();
 });
