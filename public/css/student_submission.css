@@ -1,0 +1,39 @@
+div#coursePanel {
+  display: flex;
+  justify-content: center;
+}
+
+div#assignmentLabel {
+  display: flex;
+}
+
+div#coursePanel h1, div#assignmentLabel h2, div#assignmentDetails{
+  padding: 8px;
+  border: 1px solid black;
+}
+
+div#assignmentDetails h2, div#assignmentDetails p {
+  text-align: center;
+}
+
+div#submissionPanel {
+  margin-top: 32px;
+}
+
+div#submissionPanel label {
+  display: block;
+}
+
+div#submissionPanel textarea {
+  width: 100%;
+}
+
+div#submissionControls {
+  margin-right: -7%;
+  display: flex;
+  justify-content: end;
+}
+
+div#submissionControls input {
+  margin: 8px;
+}

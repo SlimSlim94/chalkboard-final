@@ -1,0 +1,32 @@
+form#signUpForm {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+form h1 {
+  text-align: center;
+}
+
+div#username, div#password, div#confirmPassword, div#firstName, div#lastName, 
+  div#roleOptions, div#ok 
+{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8px;
+}
+
+div#username input, div#password input, div#confirmPassword input, 
+  div#firstName input, div#lastName input 
+{
+  flex-grow: 1;
+  width: 100%;
+}
+
+div#teacherOption {
+  margin-left: 8px;
+}
+
+div#ok {
+  justify-content: right;
+}

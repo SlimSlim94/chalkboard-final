@@ -1,0 +1,47 @@
+* {
+	/*background-color: #11212b;
+	color: white;*/
+}
+
+header img {
+  width: 100%;
+}
+
+div#mainPanel {
+  margin-top: 32px;
+}
+
+div#credentials {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+div#password {
+  margin-top: 8px;
+}
+
+div#login, div#password {
+  display: flex;
+}
+
+#login label, #password label {
+  width: 80px;
+}
+
+#login input, #password input {
+  width: 80%;
+}
+
+div#signUp {
+  display: flex; 
+  justify-content: flex-end;
+}
+
+div#loginControl {
+  display: flex;
+  justify-content:center
+}
+
+input#loginButton {
+  width: 70px;
+}

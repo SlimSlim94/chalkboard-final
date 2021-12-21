@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/professor_dashboard.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <title>
+      Instructor
+    </title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <header class="row">
+        <nav class="col-12">
+          <!-- Breadcrumbs -->
+          <div id="breadcrumbs">
+            <a href="/logout">Logout</a>
+          </div>
+        </nav>
+      </header>
+      <div id="allPanels" class="row d-flex justify-content-center">
+        <div class="col-11">
+          <div id="coursesControls" class="row">
+            <div id="viewOrModifyPanel" class="col-12 col-md-6 col-lg-3">
+              <input type="button" value="View | Modify" onclick="searchCourse()">
+              <input id="courseSearch" type="search" placeholder="Search">
+            </div>
+            <div id="createCoursePanel" class="col-12 col-md-6 col-lg-3">
+              <input type="button" value="Create course" onclick="newCourse()">
+            </div>
+          </div>
+          <div class="row">
+            <div id="coursePanel" class="col-8">
+              <input type="text" id='courseNoInput' name="courseNo" 
+                placeholder="Course #" onchange="noChanged(this)">
+              <input id="courseNameInput" type="text" name="courseName" 
+                placeholder="Course Name" onchange="nameChanged(this)">
+              <div id="instructorPanel">
+                <select id="instructorSelect" name="instructor"></select>
+                <div id="instructorControls">
+                  <input id="addInstructor" type="button" value="+" 
+                    onclick="addInstructor()">
+                  <input id="removeInstructor" type="button" value="-"
+                    onclick="removeInstructor()">
+                </div>
+                <div id="selectedInstructors"></div>
+              </div>
+              <div id="studentPanel">
+                <select id="studentSelect" name="student"></select>
+                <div id="studentControls">
+                  <input id="addStudent" type="button" value="+" 
+                    onclick="addStudent()">
+                  <input id="removeStudent" type="button" value="-" 
+                    onclick="removeStudent()">
+                </div>
+                <div id="selectedStudents"></div>
+              </div>
+              <textarea id="courseDescriptionTextArea" name="courseDescription" 
+                rows="5" onchange="descriptionChanged(this)">
+                Course description
+              </textarea>
+              <div id="lessonsPanel">
+                <h2>Lessons</h2>
+                <table id="lessonsTable">
+                  <thead id="lessonsTableHead">
+                    <tr>
+                      <th id="lessonTableHeader"></th>
+                      <th id="lessonControlTableHeader"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="lessonsTableBody">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div id="courseControlsPanel">
+                <input id="saveCourseButton" type="button" value="SAVE COURSE"
+                  onclick="saveCourse()"
+                >                
+                <input id="deleteCourseButton" type="button" 
+                  value="DELETE COURSE" onclick="deleteCourse()">
+              </div>
+              <div id="messages">
+                <label id="messageLabel"></label>
+              </div>              
+              <a href="/instructor/gradelesson">Grade lesson</a><br/>
+              <a href="/instructor/roster">Roster</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+
+    <script src="/js/common.js"></script>
+    <script src="/js/professor_dashboard.js"></script>
+  </body>
+</html>

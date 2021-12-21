@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/student_dashboard.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <title>
+      Dashboard
+    </title>
+  </head>
+  <body>   
+    <div id="allPanels" class="container-fluid">
+      <div id="welcomePanel" class="row">
+        <div class="col-12 d-flex justify-content-center">
+          <img src="/img/welcome.jpeg" alt="page logo">
+        </div>
+      </div>
+      <div class="row">
+        <!-- Breadcrumbs -->
+        <div class="col-12" id="breadcrumbs">
+          <a href="/logout" rel="noopener noreferrer nofollow">Logout</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-8 mt-1" id="enrolledCourses">
+          <div>
+            <h2>Enrolled courses</h2>
+			
+            <div id="studentCourses" class="list-group">
+				<% for(let course of enrolled) { %> 
+					<a href="/student/courses/<%=course._id%>" class="list-group-item list-group-item-action" rel="noopener noreferrer nofollow"><%= course.number %></a>
+				<%} %>
+            </div>
+          </div>
+          <form id="enroll" action="student_enrollment.html">
+            <a class="btn btn-primary mt-3" href="/student/enrollment">Enroll</a>
+          </form>
+        </div>
+        <div class="col-12 col-lg-4 mt-1" id="assignmentsPanel">
+          <div id="assignments">
+            <ul>
+              <li><a href="/student/submission">assignment</a></li>
+              <li><a href="/student/submission">assignment</a></li>
+              <li><a href="/student/submission">assignment</a></li>
+              <li><a href="/student/submission">assignment</a></li>
+              <li><a href="/student/submission">assignment</a></li>
+              <li><a href="/student/submission">assignment</a></li>
+            </ul>
+          </div>
+          <div id="filterByClassPanel">
+            <select name="class">
+              <option value="class1">Class 1</option>
+              <option value="class2">Class 2</option>
+              <option value="class3">Class 3</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

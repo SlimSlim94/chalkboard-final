@@ -1,0 +1,27 @@
+div#searchBar {
+  margin-top: 8px;
+}
+
+input#searchInput {
+  width: 100%;
+}
+
+div#mainPanel {
+  margin-top: 16px;
+}
+
+div#filterByPanel, div#searchResultsPanel, div#viewByPanel, div#viewPanel {
+  border: 1px solid black;
+}
+
+div#viewByPanel {
+  height: 200px;
+}
+
+div#viewOptions {
+  margin-top: 8px;
+}
+
+div h2 {
+  text-align: center;
+}

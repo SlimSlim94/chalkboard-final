@@ -1,0 +1,72 @@
+div#allPanels {
+  margin-top: 16px;
+}
+
+div#coursesControls input {
+  display: block;
+  width: 100%;
+}
+
+div#coursePanel {
+  margin-top: 16px;
+  padding: 8px;
+  border: 1px solid black;
+}
+
+input#courseNameInput {
+  margin-left: 32px;
+}
+
+div#instructorPanel, div#studentPanel {
+  margin-top: 16px;
+  display: flex;
+}
+
+select#instructorSelect, select#studentSelect {
+  min-width: 150px;
+}
+
+input#addInstructor, input#removeInstructor, input#addStudent, 
+  input#removeStudent {
+  display: block;
+  min-width: 30px;
+}
+
+div#selectedInstructors, div#selectedStudents {
+  margin-left: 8px;
+}
+
+textarea#courseDescriptionTextArea {
+  margin-top: 16px;
+  width: 100%;
+}
+
+div#lessonsPanel {
+  border: 1px solid black;
+  padding-left: 24px;
+}
+
+table#lessonsTable {
+  width: 100%;
+}
+
+table#lessonsTable th#lessonTableHeader {
+  width: 85%;
+}
+
+table#lessonsTable th#lessonControlTableHeader {
+  width: 15%;
+}
+
+table#lessonsTable td.lessonControlButton {
+  text-align: center;
+}
+
+div#deleteCoursePanel {
+  margin-top: 4px;
+}
+
+div#courseControlsPanel {
+  margin-top: 8px;
+  margin-left: 48%;
+}

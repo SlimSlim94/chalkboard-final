@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../css/professor_gradelesson.css">
+      <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+      <title>Lesson Grading</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div id="course-lesson" class="row">
+        <div id="course" class="col-12">
+          <h1>Lesson Grading</h1>
+          <nav>
+            <!-- Breadcrumbs -->
+            <div id="breadcrumbs">
+              <a href="#" onclick="logout()">Logout</a>
+              >
+              <a href="professor_dashboard.html">Dashboard</a>
+            </div>
+          </nav>
+          <form action="#" id="form-course">
+              <label for="courseSelect">Course</label>
+              <select name="classes" id="courseSelect">
+                <option value="course1">Course1</option>
+                <option value="course2">Course2</option>
+                <option value="course3">Course3</option>
+                <option value="course4">Course4</option>
+              </select>
+              <input type="submit" value="Submit" />
+          </form>
+        </div>
+        <div id="lesson" class="col-12">
+          <form action="#" id="form-lesson">
+              <label for="lessonnum">Lesson</label>
+              <select name="lesson" id="lessonnum">
+                <option value="lesson1">Lesson1</option>
+                <option value="lesson2">Lesson2</option>
+                <option value="lesson3">Lesson3</option>
+                <option value="lesson4">Lesson4</option>
+              </select>
+              <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
+      <div id="studentlist" class="row">
+        <div class="col-12">
+          <h2>Students</h2>
+          Click on students name to view submission
+          <ul id="list-student">
+            <li>Student1<br>Grade: <br>Comments: <br>Edit</li>
+            <li>Student2<br>Grade: <br>Comments: <br>Edit</li>
+            <li>Student3<br>Grade: <br>Comments: <br>Edit</li>
+            <li>Student4<br>Grade: <br>Comments: <br>Edit</li>
+            <li>Student5<br>Grade: <br>Comments: <br>Edit</li>
+            <li>Student6<br>Grade: <br>Comments: <br>Edit</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/professor_gradelesson.js"></script>
+  </body>
+</html>

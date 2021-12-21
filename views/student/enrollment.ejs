@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/student_enrollment.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <title>
+      Enrollment
+    </title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row mt-2">
+        <div id="homePanel" class="col-12 col-lg-3">
+          <nav>
+            <a href="/student/dashboard">
+              <img src="/img/home.png" width="25" alt="page logo">
+            </a>
+          </nav> 
+        </div>
+        <div id="searchCoursesPanel" class="col-12 col-lg-9">
+          <form id="filter" action="/student/enrollment">
+			<input type="search" name="search" placeholder='🔍 "Search for courses to enroll in"'>		  
+            <button class="btn btn-primary col-1" id="filterButton" type="submit">Filter</button>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div id="currentEnrolledCoursesPanel" class="col-12 col-lg-3">
+          <h2>Current enrolled courses</h2>
+          <div id="studentCourses" class="list-group mt-2">
+			<% for(let course of enrolled) { %> 
+				<a href="/student/courses/<%=course._id%>" class="list-group-item list-group-item-action" rel="noopener noreferrer nofollow"><%= course.number %></a>
+			<%} %>
+          </div>
+        </div>
+        <div id="coursesPanel" class="col-12 col-lg-9">
+		  
+          <table class="table table-striped" id="coursesTable">
+            <tr>
+              <th>Cr</th>
+              <th>Course</th>
+              <th>Professor</th>
+              <th>Time</th>
+              <th>Full</th>
+              <th> </th>
+            </tr>
+			<% for(let course of courses) { %>
+            <tr>
+              <td><%= course.creadit %></td>
+              <td><%= course.name %></td>
+              <td><%= course.creator.firstName + " " + course.creator.lastName %> </td>
+              <td><%= course.time %></td>
+			  <td><%= course.full ? "Y" : "N" %></td>
+              <td>
+			    <a class="btn btn-secondary" href="/student/enrollment/<%=course._id %>">Add</a>
+              </td>
+            </tr>
+			<% } %>
+          </table>
+          
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/student_enrollment.js"></script>
+  </body>
+</html>

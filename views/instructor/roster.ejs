@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/professor_roster.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <title>Roster</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h1>Class Roster</h1>
+        <nav>
+          <!-- Breadcrumbs -->
+          <div id="breadcrumbs">
+            <a href="/logout">Logout</a>
+            >
+            <a href="/instructor/dashboard">Dashboard</a>
+          </div>
+        </nav>
+        <div class="row" id="courseform">
+            <h2>Courses</h2>
+            
+            <div class="list-group col-2">
+			<% for(let course of courses) {%>
+              <a href="#collapse_<%=course._id%>" class="list-group-item list-group-item-action" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_<%=course._id%>" aria-expanded="false" aria-controls="#collapse_<%=course._id%>"><%=course.name%></a>
+			  <div class="collapse" id="collapse_<%=course._id%>">
+			    <div class="row mb-2 mt-2">
+			      <h2>Students (<%= course.students.length%>)</h2>
+				  <ul class="list-group list-group-flush">
+				    <% for(let student of course.students) {%>
+				    <li class="list-group-item"><%=student.firstName%> <%=student.lastName%></li>
+					<% } %>
+				  </ul>
+			    </div>
+			  </div>
+			<% } %>
+            </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/professor_roster.js"></script>
+</body>
+</html>

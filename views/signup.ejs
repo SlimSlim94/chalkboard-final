@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="../css/signup.css">-->
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <title>
+      Sign Up
+    </title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 offset-lg-4 col-lg-4" 
+          id="signUpPanel">
+          <form id="signUpForm">
+            <h1>Sign Up</h1>
+            <div id="username" class="input-group mb-3">
+              <span class="input-group-text col-3">Username:</span>
+              <input class="form-control" id="usernameInput" type="text" name="username">
+            </div>
+            <div id="password" class="input-group mb-3">
+              <span class="input-group-text col-3">Password:</span>
+              <input class="form-control" id="passwordInput" type="password" name="password">
+            </div>
+            <div id="confirmPassword" class="input-group mb-3">
+              <span class="input-group-text col-3">Confirm password:</span>
+              <input class="form-control" id="confirmPasswordInput" type="password" 
+                name="confirmPassword">
+            </div>
+            <div id="firstName" class="input-group mb-3">
+              <span class="input-group-text col-3">First name:</span>
+              <input class="form-control" id="firstNameInput" type="text" name="firstName">
+            </div>
+            <div id="lastName" class="input-group mb-3">
+              <span class="input-group-text col-3">Last name:</span>
+              <input class="form-control" id="lastNameInput" type="text" name="lastName">
+            </div>
+			
+			<div id="roleOptions" class="mb-3">
+				<div id="studentOption" class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="role" id="studentInput" value="student" checked>
+					<label class="form-check-label" for="studentInput">Student</label>
+				</div>
+				<div id="teacherOption" class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="role" id="teacherInput" value="instructor">
+					<label class="form-check-label" for="teacherInput">Instructor</label>
+				</div>
+			</div>
+			
+            <div id="ok" class="mb-3">
+              <input class="btn btn-primary" id="okButton" type="button" value="Sign Up" onclick="signUp()">
+            </div>
+          </form>
+          <div id="messages" class="text-center" >
+            <label id="messageLabel"></label>
+          </div>
+          <a href="/login">Back to login</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/signup.js"></script>
+  </body>
+</html>

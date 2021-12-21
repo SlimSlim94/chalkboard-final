@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/student_enrollment.css">
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+    <title>
+      Enrollment
+    </title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div id="homePanel" class="col-12 col-lg-3">
+          <nav>
+            <a href="student_dashboard.html">
+              <img src="../img/home.png" width="25" alt="page logo">
+            </a>
+          </nav> 
+        </div>
+        <div id="searchCoursesPanel" class="col-12 col-lg-9">
+          <input type="search" placeholder='🔍 "Search for courses to enroll in"'>
+        </div>
+      </div>
+      <div class="row">
+        <div id="currentEnrolledCoursesPanel" class="col-12 col-lg-3">
+          <h2>Current enrolled courses</h2>
+          <ul>
+            <li>class 1</li>
+            <li>class 2</li>
+            <li>class 3</li>
+            <li>class 4</li>
+            <li>class 5</li>
+          </ul>
+        </div>
+        <div id="coursesPanel" class="col-12 col-lg-9">
+          <table id="coursesTable">
+            <tr>
+              <th>Cr</th>
+              <th>Course</th>
+              <th>Professor</th>
+              <th>Time</th>
+              <th>Full</th>
+              <th> </th>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>CS355</td>
+              <td>M.Abramov</td>
+              <td>M/W<br/>430-830</td>
+              <td>N</td>
+              <td>
+                <form id="Add1Form" action="student_enrollment.html">
+                  <button type="submit">Add</button>
+                </form>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>CS355</td>
+              <td>L.Tertelman</td>
+              <td>Tu/Th<br/>2:30-630</td>
+              <td>N</td>
+              <td>
+                <form id="Add2Form" action="student_enrollment.html">
+                  <button type="submit">Add</button>
+                </form>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>CS355</td>
+              <td>S.Fluture</td>
+              <td>Fri<br/>730-A30</td>
+              <td>Y</td>
+              <td>
+                <form id="Add3Form" action="student_enrollment.html">
+                  <button type="submit">Add</button>
+                </form>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>CS355</td>
+              <td>A.Ryba</td>
+              <td>Asynch</td>
+              <td>N</td>
+              <td>
+                <form id="Add4Form" action="student_enrollment.html">
+                  <button type="submit">Add</button>
+                </form>
+              </td>
+            </tr>
+          </table>
+          <form id="filter" action="student_enrollment.html">
+            <button id="filterButton" type="submit">Filter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/student_enrollment.js"></script>
+  </body>
+</html>

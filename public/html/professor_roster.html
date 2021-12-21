@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/professor_roster.css">
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+    <title>Roster</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h1>Class Roster</h1>
+        <nav>
+          <!-- Breadcrumbs -->
+          <div id="breadcrumbs">
+            <a href="#" onclick="logout()">Logout</a>
+            >
+            <a href="professor_dashboard.html">Dashboard</a>
+          </div>
+        </nav>
+        <div id="courseform">
+          <form action="#" id="form-course">
+            <label for="course">Course</label>
+            <select name="classes" id="course">
+              <option value="course1">Course1</option>
+              <option value="course2">Course2</option>
+              <option value="course3">Course3</option>
+              <option value="course4">Course4</option>
+            </select>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+        <div id="studentlist">
+          <h2>Students</h2>
+          <ul id="form-student">
+            <li>Student1</li>
+            <li>Student2</li>
+            <li>Student3</li>
+            <li>Student4</li>
+            <li>Student5</li>
+            <li>Student6</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/professor_roster.js"></script>
+</body>
+</html>

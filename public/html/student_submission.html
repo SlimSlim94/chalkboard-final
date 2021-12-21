@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/student_submission.css">
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+    <title>
+      Assignment submission
+    </title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div id="coursePanel" class="col-12 d-flex justify-content-center">
+          <h1>Course</h1>
+        </div>
+      </div>
+      <nav class="row">
+        <!-- Breadcrumbs -->
+        <div id="breadcrumbs" class="col-12">
+          <a href="#" onclick="logout()">Logout</a>
+          >
+          <a href="student_dashboard.html">Dashboard</a>
+        </div>
+      </nav>       
+      <div id="assignment" class="row">
+        <div id="assignmentLabel" class="col-12">
+          <h2>Assignment</h2>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div id="assignmentDetails" class="col-9">
+          <h2>Assignment Details</h2>
+          <p>in</p>
+          <p>here</p>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <form id="submissionForm" action="student_submission.html" 
+          class="col-9">
+          <div id="submissionPanel">
+            <label for="submissionTextArea">Submission text</label>
+            <textarea id="submissionTextArea" name="submission" rows="5">            
+            </textarea>
+          </div>
+          <div id="submissionControls">
+            <input type="button" value="Attach files">
+            <input type="button" value="Save draft">
+            <input type="submit" value="Submit">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/student_submission.js"></script>
+  </body>
+</html>

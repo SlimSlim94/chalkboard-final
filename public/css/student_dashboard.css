@@ -1,0 +1,14 @@
+div#enrolledCourses, div#assignments {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+div#enroll {
+  display: flex; 
+  justify-content: flex-end;
+}
+
+div#filterByClassPanel {
+  display: flex; 
+  justify-content: center;
+}
