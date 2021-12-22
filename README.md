@@ -27,9 +27,9 @@
 
 (Sean Ramlall)
 - During this segment of the project I learned the importance of oragnizing the outline of a webpage. Now that we have an idea of what we want to do with our website it will be much easier for us to move forward and build the website to our specifications. If we did not do this part it wouldve been chaotic figuring out the flow from page to page.
-
+I mainly focused on the backend development and some css aspects.
 (Avishai Rostamian)
-- I learned how helpful it can be to actually visiualize a website and put it down on paper. This can help with the logistics, organization, and overall layout of how the page will be formatted. The flow as well put all the puzzle pieces together in terms of how our pages will combine into one website. All in all I enjoyed this segment of the project and will continue this process moving forward in my career.
+- I learned how helpful it can be to actually visiualize a website and put it down on paper. This can help with the logistics, organization, and overall layout of how the page will be formatted. The flow as well put all the puzzle pieces together in terms of how our pages will combine into one website. All in all I enjoyed this segment of the project and will continue this process moving forward in my career. I mainly did the html and css/bootstrap elements of this project
 
 <h2>Sitemap and wireframes</h2>
 <br>
