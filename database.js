@@ -1,4 +1,4 @@
-const { MongoClient, ObjectId } = require('mongodb');
+const { MongoClient, ObjectId, Timestamp } = require('mongodb');
 
 const connectionString = 'mongodb+srv://cs355:cs355@chalkboard.v5lmz.mongodb.net/chalkboard?retryWrites=true&w=majority';
 
@@ -32,6 +32,31 @@ async function connectAsync() {
     return { client, db: client.db('chalkboard') };
   }
 }
+
+exports.getSubmissions = async (courseId, userId) => {
+  const { client, db } = await connectAsync();
+  const submissions = db.collection('submissions');
+  const result = await submissions.find({ course: courseId, user: userId }).toArray();
+  return result;
+};
+
+exports.addSubmission = async(
+  userId, courseId, lessonId, assignmentId, answer, file
+) => {
+  const { client, db } = await connectAsync();
+  const submissions = db.collection('submissions');
+
+  await submissions.insertOne({ 
+    user: userId, 
+    course: courseId, 
+    lesson: lessonId, 
+    assignment: assignmentId,
+    answer: answer,
+    file: file,
+    ts: new Timestamp(),
+    grade: null
+  });
+};
 
 exports.courseEnroll = async (userId, courseId) => {
   const { client, db } = await connectAsync();
@@ -320,6 +345,14 @@ async function getCourse(id) {
 exports.createCourse = (course, onCreated) => {
   connect((db, onFinish) => {
     const courses = db.collection('courses');
+    
+    for(let lesson of course.lessons) {
+      lesson._id = new ObjectId();
+      for(let assignment of lesson.assignments) {
+        assignment._id = new ObjectId();
+      }
+    }
+
 
     // Inserting new user record
     courses.insertOne(course, (err) => {

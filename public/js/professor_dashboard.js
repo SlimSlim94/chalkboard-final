@@ -1,3 +1,7 @@
+window.addEventListener('load', () => {
+	/*if(!isInstructor()) {
+		window.location.href = '/login';
+	}*/
 // Object, which will hold the data regarding to the course
 let course;
 // List of instructors
@@ -285,11 +289,11 @@ function updateLessons() {
   // Adding the lessons
   course.lessons.forEach((_lesson, index) => {
     const lessonText = document.createElement('td');
-    lessonText.innerHTML = `Lesson #${index + 1}`;
+    lessonText.innerHTML = `<input type="text" name="title" value="Lesson #${index + 1}" />`;
     const lessonControl = document.createElement('td');
     lessonControl.className = 'lessonControlButton';
     lessonControl
-      .innerHTML = `<a href="#" onclick="removeLesson(${index})">(-)</a>`;
+      .innerHTML = `<a href="javascript: void(0);" onclick="removeLesson(${index})">(-)</a>`;
 
     const lessonRow = document.createElement('tr');
     lessonRow.append(lessonText, lessonControl);
@@ -302,7 +306,7 @@ function updateLessons() {
   addLessonText.innerHTML = 'Add more...';
   const addLessonControl = document.createElement('td');
   addLessonControl.className = 'lessonControlButton';
-  addLessonControl.innerHTML = '<a href="#" onclick="addLesson()">(+)</a>';
+  addLessonControl.innerHTML = '<a href="javascript: void(0);" onclick="addLesson()">(+)</a>';
 
   const addLessonRow = document.createElement('tr');
   addLessonRow.append(addLessonText, addLessonControl);
@@ -451,11 +455,7 @@ function deleteCourse() {
   XHR.send();
 }
 
-// Checking the current user
-if (!isProfessor()) {
-  window.location.href = 'index.html';
-}
-window.addEventListener('load', () => {
+
   // Setting the page for the new course
   newCourse();
 

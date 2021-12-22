@@ -2,11 +2,17 @@
 -
 <h3>Features</h3></br>
   -login screen<br/>
-   - user can login or sign up for new account<br/>
+   - user can login or sign up for new account. the admin account is user: admin password: admin<br/>
  Sign up<br/>
   -user is asked to provide an email and password. they must also provide a first and last name. the role must be chosen upon sign up<br/>
  Sign in<br/>
   - user is taken to a specific screen depending on the role associated with their account (teacher, student, admin)<br/>
+  Student Page<br/>
+   - the student is able to request enrollment in classes, check assignments and submit assignments to be graded.<br/>
+  Teacher page<br/>
+   - the teacher can create a course, add professors or students to the course, create assignments, check roster, grade assignments<br/>
+   Admin Page<br/>
+   -the admin page acts as a DB dump. you can see information on all registered student and teacher accounts such as courses enrolled. email and name.<br/>
  Home return<br/>
   - from every page there is a way to return to the home page<br/>
  images<br/>

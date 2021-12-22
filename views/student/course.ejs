@@ -32,26 +32,37 @@
                 </tr>
               </tbody>
               <tbody id="assignmentsData">
+              <% let assignments = []; 
+              for(let lesson of course.lessons) { 
+                for(let [index, assignment] of lesson.assignments.entries()) {
+
+                  const link = `/student/submission/${course._id}/${lesson._id}/${assignment._id}`;
+
+                  const sub = submissions.find(
+                      item => 
+                        item.course == course._id.toString()
+                        && item.lesson == lesson._id.toString()
+                        && item.assignment == assignment._id.toString()
+                    );
+                  assignments.push({ 
+                    name: `${lesson.name}_assignment_${index + 1}`, 
+                    submitted: sub,
+                    grade: sub && sub.grade,
+                    obj: assignment,
+                    link: link,
+                  } );
+                }               
+              }%>
+              
+              <% for(let assignment of assignments) { %>
                 <tr>
-                  <td>Assignment1</td>
-                  <td>✓</td>
-                  <td>A+</td>
+                  <td>
+                    <a href="<%=assignment.link%>"><%=assignment.name%></a>
+                  </td>
+                  <td><%=assignment.submitted ? '✓' : '✖'%></td>
+                  <td><%=assignment.grade ? assignment.grade : 'N/A' %></td>
                 </tr>
-                <tr>
-                  <td>Assignment2</td>
-                  <td>✓</td>
-                  <td>B</td>
-                </tr>
-                <tr>
-                  <td>Assignment3</td>
-                  <td>✓</td>
-                  <td>N/A</td>
-                </tr>
-                <tr>
-                  <td>Assignment4</td>
-                  <td>✖</td>
-                  <td>N/A</td>
-                </tr>
+              <% } %>
               </tbody>
             </table>
           </div>

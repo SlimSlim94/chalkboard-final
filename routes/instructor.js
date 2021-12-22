@@ -11,14 +11,9 @@ router.get('/dashboard', authRequired, async (req, res) => {
 	// Allowable only for instructors
 	if(user.role != 'instructor') return res.redirect('/');
 	
-	let result = await database.search({ students: 'on', searchQuery: user.username });
-	console.log("Result: ", result);
+	let courses = await database.getRoster(user._id.toString());
 	
-	if(result && result.length > 0 && result[0]) {
-		result = result[0].enrolledCourses || [];
-	}
-	
-	res.render('instructor/dashboard', { });
+	res.render('instructor/dashboard', { courses: courses, instructor: user });
 });
 
 router.get('/gradelesson', authRequired, async (req, res) => {

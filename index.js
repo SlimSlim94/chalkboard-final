@@ -1,12 +1,15 @@
+const connectionString = 'mongodb+srv://cs355:cs355@chalkboard.v5lmz.mongodb.net/chalkboard?retryWrites=true&w=majority';
 // Express framework
 const express = require('express');
 // For parsing bodies of the requests
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const multer = require('multer');
 // Path operations
 const path = require('path');
 
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 const database = require('./database');
 
@@ -23,24 +26,31 @@ app.use((req, res, next) => {
   next();
 })
 
-//app.set('view engine', 'ejs');
+
 app.use(session({
-    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
-    saveUninitialized:true,
-    cookie: { maxAge: 1000 * 60 * 60 * 24 },
-    resave: false 
+    secret: 'SUPER_SECRET_SESSION_KEY---@#!$%$21431243689908362d2d1-=;WZW',
+    cookie: { maxAge: 365 * 24 * 60 * 60 * 1000 },
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: connectionString,
+        ttl: 14 * 24 * 60 * 60 ,
+        autoRemove: 'native' 
+    })
 }));
 
 app.set('view engine', 'ejs');
-
 // Making the public folder accessible for external use
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('views', path.join(__dirname, 'views'));
+
+app.use(cookieParser());
 // For parsing data sent from forms
 app.use(bodyParser.json());
 app.use(multer().array());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 
 ///////////////////////////// ROUTES
 const studentRoutes = require('./routes/student');
@@ -53,6 +63,7 @@ app.use('/admin', adminRoutes);
 
 
 app.get('/', authRequired, (req, res) => {
+	console.log(req.session);
 	console.log("Role: ", req.session.user.role);
 	if(['student', 'admin', 'instructor'].indexOf(req.session.user.role) != -1) {
 		res.redirect(`${req.session.user.role}/dashboard`);
@@ -110,7 +121,9 @@ app.post('/api/signup', (req, res) => {
 
 // Login request
 app.post('/api/login', (req, res) => {
+
   const { body } = req;
+  console.log('POST /api/login: ', req.body);
   // Checking the request parameters for existence
   if (!body.login || !body.password) {
     res.status(422).json({ message: 'Invalid credentials' });
@@ -121,9 +134,15 @@ app.post('/api/login', (req, res) => {
         res.status(404)
           .json({ message: 'No such user with the given credentials' });
       } else {
-		  res.status(200).json(user);
 		  req.session.user = user;
-		  req.session.save();
+		  req.session.save((err) => {
+			  console.log(err);
+			  console.log('login session: ', req.session);
+			  res.status(200).json(user);
+		  });
+		  
+		  
+		  
 	  }
     });
   }

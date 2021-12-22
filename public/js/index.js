@@ -14,7 +14,7 @@ function login() {
       messageLabel.innerHTML = getErrorMessage(event.target);
     } else {
       // Saving user information
-      sessionStorage.setItem('currentUser', event.target.response);
+      //sessionStorage.setItem('currentUser', event.target.response);
       // Redirecting the user to the corresponding dashboard
       const user = JSON.parse(event.target.response);
       switch (user.role) {
@@ -39,5 +39,6 @@ function login() {
   });
 
   XHR.open('POST', `${apiPath}/login`);
+  //XHR.setRequestHeader("Content-type", 'multipart/form-data');
   XHR.send(FD);
 }

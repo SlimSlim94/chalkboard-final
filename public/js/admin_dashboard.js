@@ -159,10 +159,5 @@ function search() {
   return false;
 }
 
-// Checking the current user
-if (!isAdmin()) {
-  window.location.href = 'index.html';
-} else {
-  // Searching on the start
-  search();
-}
+// Searching on the start
+search();

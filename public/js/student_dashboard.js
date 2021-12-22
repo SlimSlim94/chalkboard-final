@@ -1,7 +1,7 @@
 window.onload = (e) => {
 	// Checking the current user
 	if (!isStudent()) {
-	  window.location.href = 'index.html';
+	  window.location.href = '/login';
 	}
 
 	const user = getCurrentUser();

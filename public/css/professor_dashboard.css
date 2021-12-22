@@ -13,9 +13,6 @@ div#coursePanel {
   border: 1px solid black;
 }
 
-input#courseNameInput {
-  margin-left: 32px;
-}
 
 div#instructorPanel, div#studentPanel {
   margin-top: 16px;
@@ -51,11 +48,11 @@ table#lessonsTable {
 }
 
 table#lessonsTable th#lessonTableHeader {
-  width: 85%;
+  width: 95%;
 }
 
 table#lessonsTable th#lessonControlTableHeader {
-  width: 15%;
+  width: 5%;
 }
 
 table#lessonsTable td.lessonControlButton {

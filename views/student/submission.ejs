@@ -13,7 +13,7 @@
     <div class="container-fluid">
       <div class="row">
         <div id="coursePanel" class="col-12 d-flex justify-content-center">
-          <h1>Course</h1>
+          <h1><%=course.name%></h1>
         </div>
       </div>
       <nav class="row">
@@ -32,28 +32,33 @@
       <div class="row d-flex justify-content-center">
         <div id="assignmentDetails" class="col-9">
           <h2>Assignment Details</h2>
-          <p>in</p>
-          <p>here</p>
+          <p><%=assignment.question%></p>
         </div>
       </div>
       <div class="row d-flex justify-content-center">
-        <form id="submissionForm" action="/student/submission" 
+        <form id="submissionForm" action="/student/submission" method="POST" 
+          enctype="multipart/form-data" 
           class="col-9">
+          <input type="hidden" name="studentId" value="<%=studentId%>" />
+          <input type="hidden" name="courseId" value="<%=course._id%>" />
+          <input type="hidden" name="lessonId" value="<%=lessonId%>" />
+          <input type="hidden" name="assignmentId" value="<%=assignment._id%>" />
           <div id="submissionPanel">
             <label for="submissionTextArea">Submission text</label>
-            <textarea id="submissionTextArea" name="submission" rows="5">            
-            </textarea>
+            <textarea class="form-control" id="submissionTextArea" name="answer"      rows="5"
+              placeholder="Write your answer"
+            ></textarea>
           </div>
           <div id="submissionControls">
-            <input type="button" value="Attach files">
-            <input type="button" value="Save draft">
-            <input type="submit" value="Submit">
+            <input class="form-control" type="file" name="attachment" />
+            <input class="btn btn-secondary" type="button" value="Save draft" />
+            <input class="btn btn-primary" type="submit" value="Submit" />
           </div>
         </form>
       </div>
     </div>
 
     <script src="/js/common.js"></script>
-    <script src="/js/student_submission.js"></script>
+    <!--<script src="/js/student_submission.js"></script>-->
   </body>
 </html>

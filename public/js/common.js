@@ -1,4 +1,4 @@
-const hostingAddress = 'http://localhost';//'https://chalkboard20.slimjim3094.repl.co';
+const hostingAddress = 'https://chalkboard20.slimjim3094.repl.co';
 const apiPath = `${hostingAddress}/api`;
 
 // Processes the received target to get the error message
@@ -36,7 +36,7 @@ function isAdmin() {
 }
 
 // Checks whether current user is professor
-function isProfessor() {
+function isInstructor() {
   const currentUser = getCurrentUser();
   return currentUser ? currentUser.role === 'instructor' : false;
 }
